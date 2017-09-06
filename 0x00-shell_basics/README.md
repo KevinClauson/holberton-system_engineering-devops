@@ -1,0 +1,1 @@
+0-current_working_directory this contains the command pwd that prints the working directory (i.e. the directory you are currently in).
