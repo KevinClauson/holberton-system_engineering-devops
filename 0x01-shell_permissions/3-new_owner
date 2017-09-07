@@ -1,2 +1,2 @@
 #!/bin/bash
-chown betty /home/vagrant/holberton-system_engineering-devops/0x01-shell_permissions/hello
+chown betty ./hello
