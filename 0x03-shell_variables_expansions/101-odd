@@ -1,2 +1,2 @@
 #!/bin/bash
-egrep -v '^(..)+$'
+grep -n "" | grep -E "[13579]:" | cut -d ':' -f 2
