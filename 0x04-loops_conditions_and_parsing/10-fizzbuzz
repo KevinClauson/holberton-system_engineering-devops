@@ -13,6 +13,6 @@ do
     then
         echo "Buzz"
     else
-        echo $num
+        echo "$num"
     fi
 done
