@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script displays a message 10 times using while loop
+
+cnt=0
+while [ $cnt -lt 10 ]
+do
+    echo "Holberton School"
+    ((cnt++))
+done

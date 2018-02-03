@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script displays a message 10 times using for loop
+
+for value in {1..10}
+do
+    echo "Holberton School"
+done

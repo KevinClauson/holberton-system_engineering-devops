@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script displays a message 10 times using until loop
+
+cnt=0
+until [ $cnt -eq 10 ]
+do
+    echo "Holberton School"
+    ((cnt++))
+done

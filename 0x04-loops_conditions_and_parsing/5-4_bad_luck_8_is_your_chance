@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script uses if statement
+
+cnt=1
+while [ $cnt -le 10 ]
+do
+    if [ $cnt -eq  4 ]
+    then
+        echo "bad luck"
+    elif [ $cnt -eq 8 ]
+    then
+        echo "good luck"
+    else
+        echo "Holberton School"
+    fi
+    ((cnt++))
+done

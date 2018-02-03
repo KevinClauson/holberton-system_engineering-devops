@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script uses if statement
+
+cnt=0
+while [ $cnt -lt 10 ]
+do
+    if [ $cnt -eq 9 ]
+    then
+        echo "Hi"
+    fi
+    echo "Holberton School"
+    ((cnt++))
+done
