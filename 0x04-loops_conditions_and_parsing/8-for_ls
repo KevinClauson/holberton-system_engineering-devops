@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # This script prints files in  current dir
 
-LIST="$(ls)"
 
-for i in "$LIST" 
+for i in *
 do
     echo "$i" | cut -d'-' -f2
 done
