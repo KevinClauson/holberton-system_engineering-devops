@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 # This script does fizz/buzz
+
 for num in {1..100}
 do
-    if [[ "($num%15)" -eq 0 ]]
+    fifteen=$((num%15))
+    three=$((num%3))
+    five=$((num%5))
+    if [ $fifteen -eq 0 ]
     then
-	echo "FizzBuzz"
-    elif [[ "($num%3)" -eq 0 ]]
+	    echo "FizzBuzz"
+    elif [ $three -eq 0 ]
     then
-	echo "Fizz"
-    elif [[ "($num%5)" -eq 0 ]]
+	    echo "Fizz"
+    elif [ $five -eq 0 ]
     then
-	echo "Buzz"
+	    echo "Buzz"
     else
-	echo "$num"
+	    echo "$num"
     fi
 done
