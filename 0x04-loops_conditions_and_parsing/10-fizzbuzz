@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # This script does fizz/buzz
 
-fizzbuzz = 0
 for num in {1..100}
 do
     if [[ "($num%15)" -eq 0 ]]
