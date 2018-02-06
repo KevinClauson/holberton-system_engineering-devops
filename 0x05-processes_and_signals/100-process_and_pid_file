@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Bash script that has infinite loop and deal with SIGTERM signal
+PID=$$
+#echo "$PID" >>
+#sudo touch /var/run/holbertonscript.pid
+sudo echo "$PID" > /var/run/holbertonscript.pid
+sudo rm  /var/run/holbertonscript.pid
+_term() {
+    echo "I hate the kill command"
+    sudo rm /var/run/holbertonscript.pid
+    kill -9 $PID
+}
+_term2() {
+    echo "Y U no love me?!"
+}
+_term3() {
+    sudo rm /var/run/holbertonscript.pid
+    kill -9 $PID
+}
+
+trap _term SIGTERM
+trap _term2 SIGINT
+trap _term3 SIGQUIT
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
