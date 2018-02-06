@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# a Bash script that kills 4-to_infinity_and_beyond process.
+`ps aux | grep -ie ./7-highlander | awk '{print "kill -9 " $2}'`

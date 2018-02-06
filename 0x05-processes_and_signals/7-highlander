@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Bash script that has infinite loop and deal with SIGTERM signal
+
+_term() {
+    echo "I am invincible"
+}
+
+trap _term SIGTERM
+counter=1
+while [ $counter -le 10 ]
+do
+    echo "To infinity and beyond"
+    sleep 3
+done
