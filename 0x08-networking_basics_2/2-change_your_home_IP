@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#localhost resolvs to 127.0.0.2 and facebook.com to 8.8.8.8
+cp /etc/hosts hosts_n
+pattern="^127.*"
+sed -i s/$pattern/'127.0.0.2 localhost'/ hosts_n
+echo "8.8.8.8 facebook.com" >> hosts_n
+cp hosts_n /etc/hosts
