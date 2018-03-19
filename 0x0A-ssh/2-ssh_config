@@ -1,0 +1,4 @@
+# Client config file connect without password
+Host ubuntu
+     PasswordAuthentication no
+     IdentityFile ~/.ssh/holberton
