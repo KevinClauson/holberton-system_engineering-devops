@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# ssh for creating ssh key with bit count and file name and passphrase
+ssh-keygen -b 4096 -f holberton -N test66
