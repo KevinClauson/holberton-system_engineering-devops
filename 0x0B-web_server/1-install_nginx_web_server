@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Install nginx on server listening on port 80
+apt-get -y install nginx
+echo "Holberton School for the win!" > /usr/share/nginx/html/index.html
+service nginx restart
