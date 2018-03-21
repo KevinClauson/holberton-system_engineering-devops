@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Install nginx on server and /redirect_me is redirecting to another page
+apt-get update
+apt-get install -y nginx
+new="location /redirect_me {\nrewrite ^/(.*)$ https://www.youtube.com/watch?v=wNSKrQt2jqo permanent;\n}\n"
+sed -i "/# Only/ i $new" /etc/nginx/sites-available/default
+service nginx restart
