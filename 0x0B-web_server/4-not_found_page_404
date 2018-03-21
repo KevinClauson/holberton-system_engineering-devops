@@ -5,6 +5,6 @@ apt-get install -y nginx
 new="location /redirect_me {\nrewrite ^/(.*)$ https://www.youtube.com/watch?v=wNSKrQt2jqo permanent;\n}\n"
 sed -i "/# Only/ i $new" /etc/nginx/sites-available/default
 touch /usr/share/nginx/html/404.html
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
+echo "Ceci n'est pas une page\n" > /usr/share/nginx/html/404.html
 sed -i "s/#error_page 404/error_page 404/" /etc/nginx/sites-available/default
 service nginx restart
