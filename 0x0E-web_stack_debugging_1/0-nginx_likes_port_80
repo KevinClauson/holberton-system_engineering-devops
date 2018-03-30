@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# get nginx server running on port 80
+sed -i 's/listen 8080 default_server;/listen 80 default_server;/g' /etc/nginx/sites-enabled/default
+sed -i 's/listen [::]:8080 default_server ipv6only=on;/listen [::]:8080 default_server ipv6only=on;/g' /etc/nginx/sites-enabled/default
+service nginx start
