@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
-# Install and configure HAproxy
-echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
-      tee /etc/apt/sources.list.d/backports.list
-apt-get update
-apt-get install -y haproxy -t trusty-backports
-cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
-sed -i "6 i \\\nENABLED=1\n" /etc/default/haproxy
-sed -i "\$a\
-listen backend *:80\n\
-\tmode http\n\tbalance roundrobin\n\
-\tserver 205-web-01 54.175.3.213:80 check\n\
-\tserver 205-web-02 34.228.64.127:80 check\n" \
-/etc/haproxy/haproxy.cfg
-sudo service haproxy start
+# Installing Haproxy load balancer
+sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo apt-add-repository -y ppa:vbernat/haproxy-1.7
+sudo apt-get update
+sudo apt-get install -y haproxy
+sudo apt-get install -y policycoreutils
+setsebool -P haproxy_connect_any=1
+sed -i '22 i\\nfrontend http-frontend\n\tbind \*:80\n\tmode http\n\tdefault_backend www-backend' /etc/haproxy/haproxy.cfg
+sed -i '27 i\\nbackend www-backend\n\tbalance roundrobin\n\tmode http\n\tserver 205-www-01 54.175.3.213:80 check\n\tserver 205-www-02 34.228.64.127:80 check' /etc/haproxy/haproxy.cfg
+sudo service haproxy restart 2>&1
