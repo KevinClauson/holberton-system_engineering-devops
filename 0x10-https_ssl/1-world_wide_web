@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# takes 2 args domain and subdomain
+# shellcheck disable=SC2086
+
+dig_it() {
+    sub_names="www lb-01 web-01 web-02"
+    if [ "$#" = 1 ] 
+    then
+	for name in $sub_names
+
+	do
+	    dig "$name.$1" | grep -e ^"$name" | awk -v sub_nam="$name" '{print "The subdomain", sub_nam, "is a", $4, "record and points to", $5}'
+	done
+    elif [ "$#" = 2 ]
+    then
+	dig "$2.$1" | grep -e ^"$2" | awk -v sub_nam="$2" '{print "The subdomain", sub_nam, "is a", $4, "record and points to", $5}'
+    else
+	echo "Not enough arguments"
+    fi
+}
+
+dig_it $1 $2
