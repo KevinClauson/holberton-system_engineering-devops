@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 pkill apache2
 chmod 644 /etc/nginx/nginx.conf
-chown -R nginx /etc/nginx/nginx.conf
 su - nginx -c "sed -i -e 's/80/8080/g' /etc/nginx/sites-available/default"
 su - nginx -c "service nginx restart" 2&> /dev/null
