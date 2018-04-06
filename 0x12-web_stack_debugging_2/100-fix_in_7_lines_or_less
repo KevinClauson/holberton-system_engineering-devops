@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# instal nginx in less than 7 lines
 pkill apache2
 chmod 644 /etc/nginx/nginx.conf
 su - nginx -c "sed -i -e 's/80/8080/g' /etc/nginx/sites-available/default"
