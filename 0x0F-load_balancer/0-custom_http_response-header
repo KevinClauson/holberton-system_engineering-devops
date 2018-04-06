@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# config nginx new
-# shellcheck disable=SC2154
-apt-get update
-apt-get -y install nginx
-sed -i "28 i\add_header X-Served-By $HOSTNAME;\n" \
-    /etc/nginx/nginx.conf
-service nginx restart
+# configure nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo sed -i "28i\add_header X-Served-By '$HOSTNAME';" /etc/nginx/nginx.conf
+sudo service nginx restart
