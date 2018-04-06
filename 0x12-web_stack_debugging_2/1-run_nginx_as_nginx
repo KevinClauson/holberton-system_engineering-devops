@@ -2,5 +2,6 @@
 # change so that Nginx is running as the nginx user
 pkill apache2
 chmod 644 /etc/nginx/nginx.conf
+sed -i '1s/#user www-data/user nginx/' /etc/nginx/nginx.conf
 sed -i '21s/80/8080/' /etc/nginx/sites-available/default
 sudo -H -u nginx /usr/sbin/nginx
