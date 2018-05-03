@@ -6,15 +6,13 @@ import requests
 import sys
 
 
-
-
 def my_app(num, root):
     """
     requests info from api
     """
-    employee_url = '{}{}{}'.format(root,'/users/', num)
+    employee_url = '{}{}{}'.format(root, '/users/', num)
     employee = requests.get(employee_url).json()
-    todo_url = '{}{}{}'.format(root,'/todos/?userId=', num)
+    todo_url = '{}{}{}'.format(root, '/todos/?userId=', num)
     todo = requests.get(todo_url).json()
     completed_tasks = []
     for i in todo:
