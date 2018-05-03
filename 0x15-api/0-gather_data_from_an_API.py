@@ -27,6 +27,9 @@ def my_app(num, root):
 
 
 if __name__ == '__main__':
+    """
+    APP
+    """
     root = 'https://jsonplaceholder.typicode.com'
     if len(sys.argv) > 1 and sys.argv[1].isdigit():
         my_app(sys.argv[1], root)
