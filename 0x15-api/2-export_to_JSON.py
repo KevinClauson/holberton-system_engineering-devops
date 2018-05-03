@@ -20,9 +20,9 @@ def my_app(num, root):
     username = employee.get('username')
     all_task = []
     for to in todo:
-       all_task.append({'task': to.get('title'),
-         'completed': to.get('completed'),
-         'username': username})
+        all_task.append({'task': to.get('title'),
+                         'completed': to.get('completed'),
+                         'username': username})
     file_name = "{}.json".format(num)
     user_data = {num: all_task}
     with open(file_name, 'w') as jsonfile:
