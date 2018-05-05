@@ -18,7 +18,6 @@ def recurse(subreddit, hot_list=[], after=""):
     payload = {'count': 0, 'after': after}
     response = requests.get(url, headers=header, params=payload,
                             allow_redirects=False)
-
     if response.status_code >= 300:
         return None
     else:
@@ -27,7 +26,7 @@ def recurse(subreddit, hot_list=[], after=""):
         for hot in data:
             post = hot.get('data')
             hot_list.append(post.get('title'))
-        if af is None:
-            hot_list.append(recurse(subreddit, hot_list=hot_list, after=af))
+        if af is not None:
+            return recurse(subreddit, hot_list=hot_list, after=af)
         else:
             return(hot_list)
