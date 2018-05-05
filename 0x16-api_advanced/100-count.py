@@ -43,5 +43,3 @@ def count_words(subreddit, word_list, after="", my_dict=None):
             for w in arr:
                 if my_dict[w] > 0:
                     print("{}: {}".format(w, my_dict[w]))
-                else:
-                    print()
