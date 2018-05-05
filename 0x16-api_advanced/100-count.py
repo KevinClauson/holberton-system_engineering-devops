@@ -21,6 +21,7 @@ def count_words(subreddit, word_list, after="", my_dict=None):
     if my_dict is None:
         my_dict = {}
         for word in word_list:
+            word = word.lower()
             my_dict[word] = my_dict.get(word, 0)
 
     if response.status_code >= 300:
@@ -40,4 +41,7 @@ def count_words(subreddit, word_list, after="", my_dict=None):
         else:
             arr = sorted(my_dict, key=my_dict.get,reverse=True)
             for w in arr:
-                print(w, my_dict[w])
+                if my_dict[w] > 0:
+                    print("{}: {}".format(w, my_dict[w]))
+                else:
+                    print()
