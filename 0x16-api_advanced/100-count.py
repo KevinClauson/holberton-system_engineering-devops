@@ -24,9 +24,7 @@ def count_words(subreddit, word_list, after="", my_dict=None):
             word = word.lower()
             my_dict[word] = my_dict.get(word, 0)
 
-    if response.status_code >= 300:
-        return None
-    else:
+    if response.status_code == 200:
         af = response.json().get("data").get("after")
         data = response.json().get("data").get("children")
         for hot in data:
