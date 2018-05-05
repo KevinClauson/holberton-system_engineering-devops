@@ -37,9 +37,9 @@ def count_words(subreddit, word_list, after="", my_dict=None):
                 if word in my_dict:
                     my_dict[word] += 1
         if af is not None:
-            return count_words(subreddit, word_list, after=af, my_dict=my_dict)
+            count_words(subreddit, word_list, after=af, my_dict=my_dict)
         else:
-            arr = sorted(my_dict, key=my_dict.get,reverse=True)
+            arr = sorted(my_dict, key=my_dict.get, reverse=True)
             for w in arr:
                 if my_dict[w] > 0:
                     print("{}: {}".format(w, my_dict[w]))
